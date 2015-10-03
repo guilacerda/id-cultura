@@ -1,6 +1,10 @@
-security.login.username: 'Email ou CPF'
-security.login.username.placeholder: 'Digite seu email ou CPF'
-security.login.password: Digite sua senha
+Hello!: Olá!
+Welcome!: Bem-vindo!
+'Welcome to the Citizen''s Login service.': 'Seja bem-vindo ao ID Cultura.'
+'Here you''ll find all you need to know about the service.': 'Aqui você encontrará tudo que você precisa saber sobre esse serviço.'
+'You might start by logging in or %link_start%registering%link_end%.': 'Você pode começar acessando o sistema ou %link_start%cadastrando-se%link_end%.'
+security.login.username: 'CPF, nome de usuário ou email'
+security.login.password: Senha
 security.login.remember_me: 'Lembrar meus dados'
 security.login.submit: Entrar
 scope.id: 'Identificador Único'
@@ -26,9 +30,12 @@ Revoked: Revogado
 'Authorization not found.': 'Autorização não encontrada.'
 'Wasn''t possible to disable this service.': 'Não foi possível desativar este serviço.'
 'Access Denied.': 'Acesso negado.'
-'Citizen''s Login': 'Login Cidadão'
-'%link_start%Create your account%link_end%': '%link_start%Crie seu Login Cidadão%link_end%'
-'Sign in with your Citizen''s Login': 'Acesse com seu Login Cidadão'
+'Citizen''s Login': 'ID Cultura'
+'One account. All the Government.': 'Um cadastro. Acesso por todo o Governo'
+'%link_start%Create your account%link_end%': '%link_start%Crie seu ID Cultura%link_end%'
+'Sign in with your Citizen''s Login': 'Acesse com seu ID Cultura'
+'Government of Rio Grande do Sul - Promoting equality makes the difference': 'Governo do Rio Grande do Sul - Promover a igualdade faz a diferença'
+'One account. All that the Government offers.': 'Uma conta. Tudo o que o Governo oferece.'
 'Need help?': 'Não consegue conectar?'
 'One account to all of the Government''s services': 'Uma conta única para todos os serviços do Governo'
 'Available services': 'Serviços disponíveis'
@@ -36,10 +43,12 @@ Revoked: Revogado
 Help: Ajuda
 'Logo Nota Fiscal Gaúcha': 'Logo Nota Fiscal Gaúcha'
 'We''re almost done!': 'Quase pronto!'
+'Your account is created, but we recommend you choose a better username.': 'Sua conta foi criada, mas recomendamos que escolha um nome de usuário melhor.'
+'Your username will be used to quickly refer to yourself on Citizen''s Login, just like Twitter''s @ replies.': 'Seu nome de usuário será usado para se referir a você rapidamente no ID Cultura, da mesma forma que as citações com @ do Twitter.'
 'Username:': 'Username:'
 Save: Salvar
 'You''ll need a password': 'Você precisa de uma senha'
-'To make sure that you can access the Citizen''s Login even if you lose access to your Facebook or Twitter account, please define a password.': 'Para garantir que você consiga acessar seu Login Cidadão mesmo que você perca acesso às suas contas do Facebook ou do Twitter, por favor defina uma senha.'
+'To make sure that you can access the Citizen''s Login even if you lose access to your Facebook or Twitter account, please define a password.': 'Para garantir que você consiga acessar seu ID Cultura mesmo que você perca acesso às suas contas do Facebook ou do Twitter, por favor defina uma senha.'
 'Type in your password here:': 'Digite sua senha aqui:'
 'And then confirm it here:': 'E confirme ela aqui:'
 'Save username and password': 'Salvar nome de usuário e senha'
@@ -54,6 +63,8 @@ CEP: CEP
 'To confirm your change, type your current password below:': 'Para confirmar suas alterações, digite sua senha atual abaixo:'
 'Current password:': 'Senha atual:'
 'Edit profile': 'Editar informações'
+cpf_reminder.subject: 'Você não tem um CPF associado no ID Cultura'
+cpf_reminder.message: "Olá, %name%\n\nNós notamos que sua conta não tem um CPF associado a ela ainda.\n\nPor favor, visite o ID Cultura até o dia %date% para completar essa informação. Após essa data, sua conta poderá ser suspensa.\n"
 Activated: Ativado
 Active: Ativado
 Deactivated: Desativado
@@ -84,7 +95,11 @@ Applications: Aplicativos
 email-confirmation.resent: 'As instruções para confirmação de email foram reenviadas.'
 notification.unconfirmed.email.title: 'Email não confirmado!'
 notification.unconfirmed.email.shortText: 'Caso não confirme seu email em prazo hábil, sua conta será removida. Siga as instruções enviadas por email. <a href="%url%">Reenviar email</a>'
-notification.unconfirmed.email.text: "<p>Para utilizar o Login Cidadão, é necessário que você utilize um endereço de email válido.</p> <p>Caso você não confirme seu endereço de email acessando o link que lhe foi enviado, sua conta será excluída.</p>\n"
+notification.unconfirmed.email.text: "<p>Para utilizar o ID Cultura, é necessário que você utilize um endereço de email válido.</p> <p>Caso você não confirme seu endereço de email acessando o link que lhe foi enviado, sua conta será excluída.</p>\n"
+notification.empty.password.title: 'Você não tem uma senha!'
+notification.empty.password.shortText: 'Para melhorar sua segurança e reduzir o risco de ficar sem acesso à sua conta, crie uma senha'
+notification.empty.password.text: ''
+notification.empty.password.click.here: 'clicando aqui'
 'Useful Information': 'Informações Úteis'
 'Content License': 'Licença do Conteúdo'
 'Privacy Policy': 'Política de Privacidade'
@@ -94,9 +109,23 @@ Contact: Contato
 exception.alreadyLinkedAccount: 'Essa conta já está conectada a um outro usuário. Você deve desfazer essa conexão antes de tentar conectar com o usuário atual.'
 '<a href="%link%">Background picture</a> by %name%': '<a href="%link%">Imagem de fundo</a> por %name%'
 cpf.registration.title: 'Registro de CPF'
-'Log in using your Citizen''s Login': 'Entre usando seu Login Cidadão'
+cpf.registration.nfg.check.invite: 'Se você deseja reforçar seu cadastro ainda mais, você pode vinculá-lo à Nota Fiscal Gaúcha, basta informar sua senha da Nota Fiscal Gaúcha.'
+cpf.registration.nfg.check.password: 'Digite sua senha da Nota Fiscal Gaúcha aqui:'
+cpf.registration.nfg.checked.at: 'Validado na Nota Fiscal Gaúcha em %date1%'
+cpf.profile.nfg.check.invite: 'Você deseja reforçar seu cpf ainda mais?'
+cpf.profile.nfg.check.button: 'Verifique com a Nota Fiscal Gaúcha!'
+'Active Services': 'Serviços Ativos'
+'Other Services': 'Demais serviços'
+'Log in using your Citizen''s Login': 'Entre usando seu ID Cultura'
+'This service is already active in your Citizen''s Login account': 'Este serviço já está ativo na sua conta do ID Cultura'
+'This service is not active in your Citizen''s Login account': 'Este serviço não está ativo na sua conta do ID Cultura'
+'Activate this service': 'Ativar este serviço'
+'Deactivate this service': 'Desativar este serviço'
+'Do you really want to disable this service?': 'Você quer mesmo desativar este serviço?'
 Yes: Sim
 No: Não
+'This service uses the following data from your Login Citizen account': 'Este serviço utiliza os seguintes dados da sua conta do ID Cultura'
+'Mark as read': 'Marcar como lido'
 social-networks.unlink.no-password: 'Você não pode desvincular uma rede social sem definir uma senha antes.'
 social-networks.unlink.facebook.success: 'Facebook desvinculado com sucesso.'
 social-networks.unlink.twitter.success: 'Twitter desvinculado com sucesso.'
@@ -123,17 +152,41 @@ Create: Criar
 'Secret/Private Key': 'Segredo/Chave Privada'
 'Public Id': 'Identificador Público'
 registration.email.registered: 'Esse e-mail já está sendo utilizado'
+nfg.missing.token: 'Está faltando a token de acesso da Nota Fiscal Gaúcha'
+nfg.missing.required.fields: 'Para utilizar o ID Cultura você precisa autorizar no mínimo os campos Nome, E-mail e CPF na Nota Fiscal Gaúcha'
+notification.nfg.already.bind.but.weak: 'Essa conta da Nota Fiscal Gaúcha já está vinculada em uma conta do login cidadao, todavia ainda é possivel vincula-la na sua conta, caso você complemente mais ainda seus dados na sua conta da Nota Fiscal Gaúcha'
+notification.nfg.revoked.cpf.title: 'Revogação do seu CPF'
+notification.nfg.revoked.cpf.message.short: 'Foi retirado o CPF da sua conta'
+notification.nfg.revoked.cpf.message: 'Foi retirado o CPF da sua conta, pois outro usuario apresentou dados, aparentemente, mais confiaveis, para utiliza-lo'
+notification.nfg.already.cpf.but.weak: 'Esse CPF já está vinculada em uma conta do login cidadao, todavia ainda é possivel vincula-la na sua conta, caso você complemente mais ainda seus dados na sua conta da Nota Fiscal Gaúcha'
+notification.nfg.overwrite.cpf.title: 'Foi alterado seu CPF'
+notification.nfg.overwrite.cpf.message.short: 'O sistema alterou automaticamente seu CPF pelo valor da sua conta da Nota Fiscal Gaúcha'
+notification.nfg.overwrite.cpf.message: 'O sistema alterou automaticamente seu CPF pelo valor da sua conta da Nota Fiscal Gaúcha'
+nfg.cpf.already.used: 'Já existe uma conta utilizando esse CPF'
+nfg.email.already.used: 'Já existe um conta utlizando esse e-mail'
+nfg.corrupted.callback: 'Aparentemente os dados enviados pela Nota Fiscal Gaúcha estão corrompidos, por favor entre em contato com o administrador do sistema'
+nfg.accessid.mismatch: 'Aparentemente a sessão enviada pela Nota Fiscal Gaúcha está corrompida, por favor entre em contato com o administrador do sistema'
+nfg.user.notfound: 'Não foi encontrada uma conta do login cidadao vinculada com sua conta da Nota Fiscal Gaúcha'
 'Suggest a Service': 'Sugira um serviço'
 Suggestion: Sugestão
 client.suggestion.registered: 'Sua sugestão foi registrada'
 'Your last suggested Services': 'Seus últimos serviços sugeridos'
 Send: Enviar
-'Login Cidadão': 'Login Cidadão'
-'About Citizen''s Login': 'Sobre o Login Cidadão'
+'Meu RS': 'Meu RS'
+'Login Cidadão': 'ID Cultura'
+'About Citizen''s Login': 'Sobre o ID Cultura'
+'This service is not available yet. Stay tuned for the launch date.': 'Esse serviço ainda não está ativo. Aguarde a data de lançamento.'
+recaptcha.instructions.image: 'Digite o texto:'
+recaptcha.instructions.audio: 'Digite o que você ouve:'
+recaptcha.instructions.new.challenge: 'Obter um novo desafio'
+recaptcha.instructions.new.image: 'Obter um desafio visual'
+recaptcha.instructions.new.audio: 'Obter um desafio de áudio'
+recaptcha.instructions.help: 'Ajuda'
+recaptcha.instructions.img: 'Imagem de desafio reCAPTCHA'
 'With only one account, the citizen will be able to use government''s digital services.': 'Com apenas um cadastro, o cidadão poderá utilizar os serviços digitais do governo.'
 'One account. The entire Government.': 'Uma conta. O Governo Inteiro.'
 'Creative commons': Licença creative commons
-lc.html.title: 'Login Cidadão'
+lc.html.title: 'ID Cultura'
 form.published: 'Publicado'
 form.visible: 'Visivel'
 grid.search.noresult: 'Nenhum registro encontrado'
@@ -435,8 +488,8 @@ YEMEN: Iêmen
 SOUTH AFRICA: África do Sul
 ZAMBIA: Zâmbia
 ZIMBABWE: Zimbabwe
-'This is the Citizen Login': 'Esse é o Login Cidadão'
-'To enjoy all the benefits of Citizen Login, please check your information and submit the following form.': 'Para aproveitar todos os benefícios do Login Cidadão, por favor verifique seus dados no formulário de cadastro e clique em Criar conta.'
+'This is the Citizen Login': 'Esse é o ID Cultura'
+'To enjoy all the benefits of Citizen Login, please check your information and submit the following form.': 'Para aproveitar todos os benefícios do ID Cultura, por favor verifique seus dados no formulário de cadastro e clique em Criar conta.'
 'After registering you''ll receive a confirmation email to proceed the activation of your account.': 'Depois de enviar o formulário você receberá um email de confirmação para proceder com a ativação da sua conta.'
 'Complement' : 'Complemento'
 'Send' : 'Enviar'
@@ -516,7 +569,8 @@ Are you sure you want to remove this ID Card?: Você tem certeza que deseja remo
 Click here to <strong>add an ID Card</strong>: Clique aqui para <strong>adicionar um Documento de Identidade</strong>
 Two-Factor Authentication: Autenticação por Dois Fatores
 Authentication Code: Código de Autenticação
-'Postal code': 'Código postal'
+View this notification on Citizen Login: Abra essa notificação no ID Cultura
+'Postal code' : 'Código postal'
 scope.id_cards : 'Documentos de Identidade'
 scope.state: 'Estado'
 scope.addresses: 'Endereços'
@@ -595,117 +649,9 @@ Activity Log: Registro de Atividade
 Badges: Medalhas
 Dashboard: 'Início'
 badges.list.title: 'O que são as medalhas?'
-badges.list.description: 'Medalhas são os indicadores de validações que sua identidade virtual possui. Elas permitem que os demais sistemas integrados ao Login Cidadão possam melhorar a sua experiência ao utilizar os serviços ofertados.'
-scope.logout: 'Permitir deslogar'
-'Search it!': 'Pesquise aqui!'
-'Don''t know your postal code?': 'Não sabe seu código postal?'
-'Select a state below:': 'Selecione um estado abaixo:'
-Firstname: Nome
-Surname: Sobrenome
-'Use accounts from other services': 'Use contas de outros serviços'
-'If you prefer, it''s possible to use other services to login or create your account.': 'Se preferir, é possível usar os seguintes serviços para acessar ou criar sua conta:'
-Type your password to confirm the activation.: Digite sua senha para confirmar a ativação.
-Current password: Senha atual
-Mobile: Celular
-Copy: Copiar
-Copied: Copiado
-Press CTRL + C or ⌘ + C to copy: Pressione CTRL + C ou ⌘ + C para copiar
-Users: Usuários
-No recent activity: Sem atividade recente
-Information about authorizations granted to services.: Informações sobre autorizações concedidas a serviços.
-See how many users have each badge.: Veja quantas pessoas possuem cada medalha.
-Users by Location: Usuários por Localização
-Information about people's location. Either by <a href="%country_url%">Country</a> or by <a href="%state_url%">State</a>: Informações sobre a localização das pessoas, tanto <a href="%country_url%">por País</a> quanto <a href="%state_url%">por Estado</a>
-organizations:
-    menu.label: Organizações
-    page.title: Organizações
-    list:
-        user:
-            title: Minhas Organizações
-            empty: Você não está em uma Organização
-        all:
-            title: Outras Organizações
-            empty: Nenhuma organização encontrada
-    new:
-        title: Nova Organização
-        form_title: Nova Organização
-        form_action_label: Criar
-        button_title: Criar Organização
-        button_label: Nova Organização
-    edit:
-        title: Editando Organização %name%
-        form_title: Editando Organização %name%
-        form_action_label: Salvar
-    show:
-        title: Informações da Organização %name%
-        services_count:
-            label: Serviços Cadastrados
-            count: '{0} Nenhum serviço|{1} Um serviço|]1,Inf[ %count% serviços'
-        members_count:
-            label: Integrantes
-            count: '{0} Nenhum membro|{1} Um membro|]1,Inf[ %count% membros'
-    form:
-        name.label: Nome
-        domain.label: Domínio
-        sectorIdentifierUri.label: URI de Sector Identifier
-        validationUrl.label: URL para Validação
-        trusted.label: Organização Confiável
-        members:
-            label: Membros
-            search.label: Pesquisar por Nome, email, CPF ou nome de usuário
-            name.label: Nome
-        delete:
-            panel.title: Excluir <strong>%name%</strong>?
-            warn: A exclusão de uma organização não pode ser desfeita. Caso exclua por engano você terá que criar uma nova organização e associar os serviços a ela.
-            button: Excluir
-            confirm: Tem certeza que deseja excluir essa organização? Os serviços associados ficarão sem uma organização!
-            yes: Sim, REMOVA essa organização
-            no: Não remova
-            success: Organização %name% excluída com sucesso.
-        client_form.placeholder: Selecione uma Organização
-    validation:
-        not_verified: Validação Pendente
-        verified: Verificada
-        instructions: Para validar essa organização, crie um arquivo no domínio informado contendo o código a seguir e informe o endereço desse arquivo no campo <code>%input%</code>.
-        on_authorize:
-            warn_not_verified:
-                attention: Atenção!
-                text: Esse serviço está sendo oferecido por uma organização não verificada. Confira, a seguir, as informações dessa organização antes de autorizar.
-            info:
-                provided_by: Esse serviço é oferecido por <strong>%name%</strong> (<a class="text-danger">%domain%</a> %label%).
-                warn_trust: Autorize apenas se você confia nessa organização.
-                domain_verified: Domínio Verificado
-                domain_not_verified: Domínio não Verificado
-                no_organization:
-                    provided_by: Esse serviço não foi associado a nenhuma organização
-                    warn_trust: <strong>Não autorize</strong>, caso não tenha certeza de que se trata de um serviço confiável
-    trust:
-        warn_untrusted:
-            attention: Cuidado!
-            text: Esse serviço está sendo oferecido por uma organização que não confiamos. Apenas autorize caso <strong>você</strong> confie nesta organização.
-FEATURE_ORGANIZATIONS: Funcionalidade de Organizações
-ROLE_ORGANIZATIONS_BIND_CLIENT: 'Organizações: pode associar serviços em organizações das quais é membro'
-ROLE_ORGANIZATIONS_BIND_CLIENT_ANY_ORG: 'Organizações: pode associar serviços em qualquer organização'
-ROLE_ORGANIZATIONS_CREATE: 'Organizações: pode criar organizações'
-ROLE_ORGANIZATIONS_EDIT: 'Organizações: pode editar organizações das quais é membro'
-ROLE_ORGANIZATIONS_EDIT_ANY_ORG: 'Organizações: pode editar qualquer organização'
-ROLE_ORGANIZATIONS_VALIDATE: 'Organizações: pode validar domínio de organizações'
-ROLE_ORGANIZATIONS_LIST_ALL: 'Organizações: pode listar organizações das quais não é membro'
-ROLE_ORGANIZATIONS_DELETE: 'Organizações: pode excluir organizações das quais é membro'
-ROLE_ORGANIZATIONS_DELETE_ANY_ORG: 'Organizações: pode excluir quaisquer organizações'
-ROLE_ORGANIZATIONS_MANAGE_MEMBERS_ANY_ORG: 'Organizações: pode gerenciar membros de qualquer organização'
-ROLE_ORGANIZATIONS_CAN_TRUST: 'Organizações: pode marcar uma organização como confiável'
-access_log:
-    panel_title: Registros de Acesso
-    date.format: d/m/Y H:i
-    login: Acessado por <span class="label label-info">%ip%</span> em <span class="label label-info">%date%</span>
-    impersonation: <span class="label label-info">Suporte técnico</span> em <span class="label label-info">%date%</span>
-    page.title: Registros de Acesso
-activity_log:
-    page.title: 'Registros de Atividade de Serviços'
-    admin.name: 'Suporte técnico'
-    viewed_info: 'Visualizou informações em %date%'
-    changed_info: 'Alterou informações em %date%'
+badges.list.description: 'Medalhas são os indicadores de validações que sua identidade virtual possui. Elas permitem que os demais sistemas integrados ao ID Cultura possam melhorar a sua experiência ao utilizar os serviços ofertados.'
+Login Log: Registro de acesso
+'Login by <span class="label label-info">%ip%</span> at <span class="label label-info">%date%</span>': 'Acessado por <span class="label label-info">%ip%</span> em <span class="label label-info">%date%</span>'
 log.date.format: 'd/m/Y H:i:s'
 admin:
     title: 'Área do Administrator'
