@@ -50,22 +50,29 @@ class RegistrationFormType extends BaseType
                     'options' => ['translation_domain' => 'FOSUserBundle'],
                     'first_options' => [
                         'label' => 'form.password',
-                        'attr' => ['placeholder' => 'form.plainPassword.example'],
-                    ],
-                    'second_options' => [
+                        'attr' => array('placeholder' => 'form.plainPassword.example'),
+                    ),
+                    'second_options' => array(
                         'label' => 'form.password_confirmation',
-                        'attr' => ['placeholder' => 'form.plainPassword.confirm.example'],
-                    ],
+                        'attr' => array('placeholder' => 'form.plainPassword.confirm.example'),
+                    ),
                     'invalid_message' => 'fos_user.password.mismatch',
-                ]
+                )
             );
+
         if ($this->session->has('requested_scope')) {
             $builder
-                ->add('firstName', null, [
-                    'required' => true,
-                    'label' => 'person.form.firstName.label',
-                    'attr' => ['placeholder' => 'person.form.firstName.placeholder'],
-                ]);
+                ->add(
+                    'firstName',
+                    null,
+                    [
+                        'required' => true,
+                        'label' => 'person.form.firstName.label',
+                        'attr' => [
+                            'placeholder' => 'person.form.firstName.placeholder',
+                        ],
+                    ]
+                );
             $requestedScope = explode(' ', $this->session->get('requested_scope'));
             foreach ($requestedScope as $scope) {
                 $this->addDynamicField($builder, $scope);
@@ -80,62 +87,70 @@ class RegistrationFormType extends BaseType
 
     private function addDynamicField(FormBuilderInterface $builder, $scope)
     {
-        $fields = $this->setSynonyms([
-            'full_name' => function (FormBuilderInterface $builder) {
-                $builder->add('surname', null, [
-                    'required' => true,
-                    'attr' => ['placeholder' => 'person.form.surname.placeholder'],
-                ]);
-            },
-            'cpf' => function (FormBuilderInterface $builder) {
-                $builder->add('cpf', 'LoginCidadao\CoreBundle\Form\Type\TelType', [
-                    'required' => false,
-                    'attr' => [
-                        'class' => 'form-control cpf',
-                        'placeholder' => 'person.form.cpf.placeholder',
-                        'maxlength' => 14,
-                    ],
-                ]);
-            },
-            'phone_number' => function (FormBuilderInterface $builder) {
-                $builder->add('mobile', 'Misd\PhoneNumberBundle\Form\Type\PhoneNumberType', [
-                    'required' => false,
-                    'label_attr' => ['class' => 'intl-tel-label'],
-                    'attr' => ['placeholder' => 'person.form.mobile.placeholder', 'class' => 'form-control intl-tel'],
-                    'format' => PhoneNumberFormat::E164,
-                ]);
-            },
-            'birthday' => function (FormBuilderInterface $builder) {
-                $builder->add('birthdate', 'LoginCidadao\CoreBundle\Form\Type\BirthdayTelType', [
-                    'required' => true,
-                    'format' => 'dd/MM/yyyy',
-                    'widget' => 'single_text',
-                    'label' => 'form.birthdate',
-                    'translation_domain' => 'FOSUserBundle',
-                    'attr' => [
-                        'type' => 'tel',
-                        'class' => 'form-control birthdate',
-                        'placeholder' => 'person.form.birthdate.placeholder',
-                    ],
-                ]);
-            },
-        ], [
-            'name' => 'full_name',
-            'surname' => 'full_name',
-            'last_name' => 'full_name',
-            'birthdate' => 'birthday',
-            'mobile' => 'phone_number',
-        ]);
-
-        if (array_key_exists($scope, $fields)) {
-            $fields[$scope]($builder);
-        }
-    }
-
-    private function setSynonyms(array $data, array $synonyms)
-    {
-        foreach ($synonyms as $synonym => $original) {
-            $data[$synonym] = $data[$original];
+        switch ($scope) {
+            case 'name':
+            case 'surname':
+            case 'full_name':
+                $builder->add(
+                    'surname',
+                    null,
+                    [
+                        'required' => true,
+                        'attr' => [
+                            'placeholder' => 'person.form.surname.placeholder',
+                        ],
+                    ]
+                );
+                break;
+            case 'cpf':
+                $builder->add(
+                    'cpf',
+                    'LoginCidadao\CoreBundle\Form\Type\TelType',
+                    [
+                        'required' => false,
+                        'attr' => [
+                            'class' => 'form-control cpf',
+                            'placeholder' => 'person.form.cpf.placeholder',
+                            'maxlength' => 14,
+                        ],
+                    ]
+                );
+                break;
+            case 'mobile':
+            case 'phone_number':
+                $builder->add(
+                    'mobile',
+                    null,
+                    [
+                        'required' => false,
+                        'label_attr' => ['class' => 'intl-tel-label'],
+                        'attr' => [
+                            'placeholder' => 'person.form.mobile.placeholder',
+                            'class' => 'form-control intl-tel',
+                        ],
+                    ]
+                );
+                break;
+            case 'birthdate':
+                $builder->add(
+                    'birthdate',
+                    'LoginCidadao\CoreBundle\Form\Type\BirthdayTelType',
+                    [
+                        'required' => true,
+                        'format' => 'dd/MM/yyyy',
+                        'widget' => 'single_text',
+                        'label' => 'form.birthdate',
+                        'translation_domain' => 'FOSUserBundle',
+                        'attr' => [
+                            'type' => 'tel',
+                            'class' => 'form-control birthdate',
+                            'placeholder' => 'person.form.birthdate.placeholder',
+                        ],
+                    ]
+                );
+                break;
+            default:
+                break;
         }
 
         return $data;
