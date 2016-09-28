@@ -59,7 +59,6 @@ class RegistrationFormType extends BaseType
                     'invalid_message' => 'fos_user.password.mismatch',
                 ]
             );
-
         if ($this->session->has('requested_scope')) {
             $builder
                 ->add('firstName', null, [
