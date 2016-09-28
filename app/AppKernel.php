@@ -64,6 +64,8 @@ class AppKernel extends Kernel
             new LoginCidadao\TaskStackBundle\LoginCidadaoTaskStackBundle(),
             new LoginCidadao\DynamicFormBundle\LoginCidadaoDynamicFormBundle(),
             new LoginCidadao\LogBundle\LoginCidadaoLogBundle(),
+
+            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
