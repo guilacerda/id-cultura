@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://themes.googleusercontent.com/static/fonts/opensans/v7/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+*, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Open Sans', arial;
+    font-weight: 300;
+}
+
+.font-a {
+    font-family: arial, helvetica, sans-serif;
+}
+
+/* IdCultura */
+
+
+html {
+	background: 0 0 url('../images/ID_BG.png') repeat #fff;
+}
+
+#body #lc-navbar {
+  box-shadow: 0 17px 40px -17px #000 !important;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    #body #lc-navbar .brand a {
+        background-image: url('../images/navbar_logo2x.png') !important;
+        background-size: 155px;
+    }
+}
+
+#body #lc-navbar .brand a {
+    background-image: url('../images/navbar_logo.png');
+    background-repeat: no-repeat;
+    height: 42px;
+    padding: 0;
+    width: 160px;
+    text-indent: -9999px;
+}
+
+a {
+    color: #00918C;
+}
+
+.form-control {
+    background-color: #FFFF;
+}
+
+footer {
+    padding: 30px 0;
+}
+
+footer h3 {
+    color: #000;
+    text-shadow: none;
+}
+
+footer li a {
+    color: #000;
+}
+
+footer a:hover {
+    color: #074542;
+}
+
+
+.limit-960>.gov_federal {
+  max-width: none;
+}
+
+.gov_federal {
+    width: 100%;
+    min-height: 70px;
+    background-color: #074542;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.acesso_info {
+    color: #FFF;
+    text-indent: -9999999px;
+    background-image: url('../images/acesso-a-informacao.png');
+    width: 107px;
+    height: 49px;
+
+}
+.logo_gov {
+    color: #FFF;
+    float: right;
+    text-indent: -9999999px;
+    background-image: url('../images/governo_temer.png');
+    background-size: 100%;
+    width: 145px;
+    height: 65px;
+    margin-top: -10px;
+}
+
+
+#body .settings-nav {
+  top: 0px;
+}
+#body .settings-nav .nav {
+  padding-top: 50px;
+}
+
+.vertical-center-with-footer {
+    min-height: 85% !important;
+    min-height: 85vh !important;
+}
