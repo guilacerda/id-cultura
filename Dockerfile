@@ -21,12 +21,12 @@ RUN apt-get install -y libz-dev libmemcached-dev \
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install XDebug
-RUN yes | pecl install xdebug
+#RUN yes | pecl install xdebug
 
 # Configure XDebug
-RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
- && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+#RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
+# && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+# && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 # Configure PHP and Apache
 RUN echo "date.timezone = America/Sao_Paulo" > /usr/local/etc/php/conf.d/php-timezone.ini \
@@ -35,19 +35,34 @@ RUN echo "date.timezone = America/Sao_Paulo" > /usr/local/etc/php/conf.d/php-tim
  && echo "    DocumentRoot /var/www/html/web" >> /etc/apache2/conf-enabled/lc-docroot.conf \
  && echo "</VirtualHost>" >> /etc/apache2/conf-enabled/lc-docroot.conf
 
-WORKDIR /var/www/html
 # Instal composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
  && php composer-setup.php
 
+RUN mkdir -p /var/www/.composer \
+ && chown -R www-data:www-data /var/www/.composer
+
+USER www-data
+WORKDIR /var/www/html
+
 # Instal composer dependencies
+COPY app/config/parameters.yml.dist /var/www/html/app/config
 COPY composer.lock /var/www/html
 COPY composer.json /var/www/html
 RUN php composer.phar config cache-dir
 RUN php composer.phar install --no-interaction --no-scripts --no-autoloader
+
 COPY . /var/www/html
+USER root
+RUN chown -R www-data:www-data /var/www/html \
+ && chmod -R u+rw /var/www/html/app/cache \
+ && chmod -R u+rw /var/www/html/app/logs
+USER www-data
+
 RUN php composer.phar dump-autoload -d /var/www/html
-RUN chown -R www-data /var/www/html
+RUN php composer.phar run-script post-install-cmd --no-interaction
 # RUN php app/console assets:install \
 #  && php app/console assets:install -e prod \
 #  && php app/console assetic:dump -e prod
+
+USER root

@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  lc:
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.frontend.redirect.entryPoint=https"
+      - "traefik.frontend.headers.customRequestHeaders=X-Forwarded-Proto:https"
+      - "traefik.frontend.rule=Host:lc.local.dona.to"
+    links:
+      - db:logincidadao_db
+    volumes:
+      - ./app:/var/www/html/app
+      - ./src:/var/www/html/src
+      - ./web:/var/www/html/web
+    networks:
+      - router
+
+  db:
+    image: postgres:9.4
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: logincidadao
+      POSTGRES_PASSWORD: logincidadao
+      POSTGRES_DB: logincidadao
+    networks:
+      - router
+
+networks:
+  router:
+    external:
+      name: router

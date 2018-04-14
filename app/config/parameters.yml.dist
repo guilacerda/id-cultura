@@ -2,7 +2,7 @@ parameters:
     # Database Manager. pdo_pgsql for Postgres or pdo_mysql for MySQL
     database_driver:   pdo_pgsql
     # Database address (use ~ for socket)
-    database_host:     localhost
+    database_host:     logincidadao_db
     # Database port (use ~ for socket)
     database_port:     ~
     # Database name (schema)
